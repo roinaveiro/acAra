@@ -35,6 +35,11 @@ mailGenerator <- function(k=5, spam = T,
                         probSubsetSpam")
         }
         
+        if(sum(probSubsetSpam) != 1){
+                stop("Probabilities in probSubsetSpam don't sum up to one")
+        }
+        
+        
         if(spam){
                aux = rmultinom(1, 1, probSubsetSpam)
                email = t(aux) %*% subsetSpam
