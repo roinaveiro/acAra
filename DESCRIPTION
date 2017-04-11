@@ -1,0 +1,10 @@
+Package: acAra
+Title: Adversarial Classification with ARA
+Version: 0.0.0.9000
+Authors@R: person("Roi", "Naveiro", email = "roi.naveiro@icmat.es", role = c("aut", "cre"))
+Description: What the package does (one paragraph).
+Depends: R (>= 3.3.2)
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1.9000
