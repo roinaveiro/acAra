@@ -25,13 +25,23 @@ mailGenerator <- function(k=5, spam = T,
                           subsetSpam = matrix(c(1,0,0,0,0,1,1,0,0,0), 
                                               nrow = 2, byrow = T),
                           probSubsetSpam = c(0.8,0.2)){
-       if(spam){
+        
+        if(ncol(subsetSpam) != k){
+                stop("Wrong dimensions of subsetSpam matrix")
+        }
+        
+        if(nrow(subsetSpam) != length(probSubsetSpam)){
+                stop("Number of columns of subsetSpam non equal to length of 
+                        probSubsetSpam")
+        }
+        
+        if(spam){
                aux = rmultinom(1, 1, probSubsetSpam)
                email = t(aux) %*% subsetSpam
-       }
+        }
         else{
                 email = rbinom(k, 1, 0.5)
         }
        
-       return(email)
+        return(email)
 }
