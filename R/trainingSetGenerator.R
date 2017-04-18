@@ -60,6 +60,8 @@ trainingSetGenerator <- function(n=1000, spamPrev = 0.1, k=5,
                 }
         }
         
+        trainingSet = data.frame( sapply(trainingSet, as.factor) )
+        
         return(trainingSet)
 
 }
