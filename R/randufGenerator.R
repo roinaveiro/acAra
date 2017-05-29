@@ -10,28 +10,29 @@
 #' @examples
 #' randufGenerator()
 
-randufGenerator <- function(y=1,yc=1){
+randufGenerator <- function(yc=1,y=1){
   # if y label is malicious and yc label is malicious
-  if ((y == 1) & (yc == 1)){
+  if ((yc == 1) & (y == 1)){
     Y=-rgamma(1,1,1)
   }
   # if y label is malicious and yc label innocent
-  if ((y == 1) & (yc == 0)){
+  if ((yc == 1) & (y == 0)){
     Y= rgamma(1,1,1)  
   }
   # if y label is innocent and yc label is malicious
-  if ((y == 0) & (yc == 1)){
+  if ((yc == 0) & (y == 1)){
     Y=0
   }
   # if y label is innocent and yc label is innocent
-  if ((y == 0) & (yc == 0)){
+  if ((yc == 0) & (y == 0)){
     Y=0
   }
   
   # Generate random cost of implementing attack
   B = -rgamma(1,1,1)
   
+  randomRiskPronenessCoeff = runif(1)
   # Expected utility
-  U = Y - B
+  U = exp(randomRiskPronenessCoeff*(Y - B))
   return (U)
 }
