@@ -1,4 +1,4 @@
-library(Rlab)
+#library(Rlab)
 getRandomAttackEstimates <- function(emailLength=5, iterations=100,pcSpam,pcNoSpam,fit){
    emailTypesMatrix = getMatrixEmailTypes(5)
    probSpam = 0

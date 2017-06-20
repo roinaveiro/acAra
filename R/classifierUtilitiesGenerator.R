@@ -1,10 +1,8 @@
 #' Classifier utilities generator
 #'
-#' This function generates random attacker utilities depending on expected attack 
-#' result.
-#' @param yc label of the email when defender make the classification of the email,
+#' This function generates classifier utilities.
+#' @param yc defender's decision about email label, 1 spam 0 no spam.
 #' @param y label of the email, 1 spam and 0 no spam.
-#' 1 spam and 0 no spam
 #' @keywords emails, utility, random utilities
 #' @export
 #' @examples
