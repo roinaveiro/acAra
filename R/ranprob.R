@@ -11,7 +11,7 @@
 #' @examples
 #' ranprob(x, fit)
 
-ranprob = function(x, fit, var = 0.5){
+ranprob = function(x, fit, var = 0.01){
     aux = getQs(x, fit)
     r = sum(aux[-1]) / sum(aux)
     deltas = deltas(r, var)
