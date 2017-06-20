@@ -4,13 +4,13 @@
 \alias{randut}
 \title{Random Utility Generator}
 \usage{
-randut(y = 1, yc = 1)
+randut(yc = 1, y = 1)
 }
 \arguments{
-\item{y}{label of the email, 1 spam and 0 no spam.}
-
 \item{yc}{decision of defender about label of email,
 1 spam and 0 no spam}
+
+\item{y}{label of the email, 1 spam and 0 no spam.}
 }
 \description{
 This function generates random attacker utilities depending on expected attack 
