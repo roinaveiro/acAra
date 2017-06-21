@@ -26,7 +26,7 @@ getQs = function(x, fit){
     for(i in 1:length(x) ){
         xtmp = x
         if( x[,i] == 1 ) {
-        xtmp[,i] = factor(0)
+        xtmp[,i] = factor(0, levels = c(0,1))
             qDist[i+1] = getNBProbabilities(fit, xtmp)[, "1"] * pSpam
         }
         

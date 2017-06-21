@@ -40,7 +40,7 @@ getAttackProbDsitribution <- function(x,y,fit){
                 
                 xtmp = x
                 if(xtmp[,j] == 0){
-                    xtmp[,j] = factor(1)
+                    xtmp[,j] = factor(1, levels = c(0,1))
                     P = ranprob(xtmp,fit)
                     aux2 = (utSpamSpam - utnoSpamSpam)*P + utnoSpamSpam
                     
