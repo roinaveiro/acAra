@@ -15,7 +15,7 @@
 #' @examples
 #' getAttackProbDsitribution(x,y)
 
-getAttackProbDsitribution <- function(x,y,fit){
+getAttackProbDsitribution <- function(x,y,fit,var = 0.001){
         n = length(x) + 1
         probDist = rep(0, n)
         
@@ -32,7 +32,7 @@ getAttackProbDsitribution <- function(x,y,fit){
             utSpamSpam = randut(1,1)
             utnoSpamSpam = randut(0,1)
             
-            P = ranprob(x,fit)
+            P = ranprob(x,fit,var)
             aux = (utSpamSpam - utnoSpamSpam)*P + utnoSpamSpam
             indexWinner = 1
             
@@ -41,7 +41,7 @@ getAttackProbDsitribution <- function(x,y,fit){
                 xtmp = x
                 if(xtmp[j] == 0){
                     xtmp[j] = factor(1, levels = c(0,1))
-                    P = ranprob(xtmp,fit)
+                    P = ranprob(xtmp,fit,var)
                     aux2 = (utSpamSpam - utnoSpamSpam)*P + utnoSpamSpam
                     
                     if(aux2 > aux){
