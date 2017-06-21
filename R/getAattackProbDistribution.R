@@ -46,6 +46,7 @@ getAttackProbDsitribution <- function(x,y,fit,var = 0.001){
                     
                     if(aux2 > aux){
                         indexWinner = j+1
+                        aux = aux2
                     }
                 }
                 
