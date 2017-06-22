@@ -4,7 +4,7 @@
 \alias{ranprob}
 \title{Get P_a(x) as seen by the adversary}
 \usage{
-ranprob(x, fit, var = 0.5)
+ranprob(x, fit, var = 0.001)
 }
 \arguments{
 \item{x}{the ATTACKED email.}

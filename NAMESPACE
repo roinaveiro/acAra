@@ -2,7 +2,8 @@
 
 export(classifierUtilitiesGenerator)
 export(deltas)
-export(getAttackProbDsitribution)
+export(getACRAlabel)
+export(getAttackProbDistribution)
 export(getNBPriors)
 export(getNBProbabilities)
 export(getQs)
