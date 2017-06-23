@@ -11,7 +11,7 @@
 classifierUtilitiesGenerator <- function(yc=1,y=1){
   # if y label is malicious and yc label is malicious
   if ((yc == 1) & (y == 1)){
-    U = 0
+    U = 1
   }
   # if y label is malicious and yc label innocent
   if ((yc == 1) & (y == 0)){

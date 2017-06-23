@@ -22,7 +22,7 @@ getACRAlabel <- function(x,fit,var = 0.001){
     for(i in 1:length(x)){
         xtmp = x
         if(xtmp[i] == 1){
-            print(paste("Studying possible original message x", as.character(i)))
+        print(paste("Studying possible original message x", as.character(i)))
             xtmp[i] = factor(0, levels = c(0,1))
             tmp = getAttackProbDistribution(xtmp, 1, fit, var)[i+1]
             tmp = tmp * getNBProbabilities(fit, xtmp)[,"1"]
