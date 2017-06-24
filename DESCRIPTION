@@ -1,4 +1,4 @@
-Package: acAraPrb
+Package: acAra
 Title: Adversarial Classification with ARA
 Version: 0.0.0.9000
 Authors@R: person("Roi", "Naveiro", email = "roi.naveiro@icmat.es", role = c("aut", "cre"))
