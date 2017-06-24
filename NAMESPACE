@@ -9,10 +9,15 @@ export(getNBPriors)
 export(getNBProbabilities)
 export(getNBlabel)
 export(getQs)
+export(getRa)
 export(mailGenerator)
+<<<<<<< HEAD
 export(mailToNumber)
 export(prb)
 export(preprocessing)
+=======
+export(preprocessing2V2)
+>>>>>>> 9e2d843ad3e8ead8dc3733cd8c5e10b2389757c3
 export(randut)
 export(ranprob)
 export(trainRawNB)
