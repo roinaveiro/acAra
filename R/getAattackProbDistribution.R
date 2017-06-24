@@ -15,7 +15,7 @@
 #' @examples
 #' getAttackProbDsitribution(x,y)
 
-getAttackProbDistribution <- function(x,y,fit,var = 0.001, iter = 1000){
+getAttackProbDistribution <- function(x,y,fit,var = 0.000001, iter = 1000){
         n = length(x) + 1
         probDist = rep(0, n)
         
