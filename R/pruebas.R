@@ -15,7 +15,7 @@
 #' @examples
 #' getAttackProbDsitribution(x,y)
 
-getAttackProbDistribution <- function(x,y,fit,var = 0.001, iter = 1000){
+prb <- function(x,y,fit,var = 0.001, iter = 1000){
         n = length(x) + 1
         probDist = rep(0, n)
         
@@ -29,12 +29,10 @@ getAttackProbDistribution <- function(x,y,fit,var = 0.001, iter = 1000){
         # If label is 1, then MC simulation.
         for(k in 1:iter){
             
-            utSpamSpam = randut(1,1)
-            utnoSpamSpam = randut(0,1)
+        
             
             d = deltas(fit$df$means[mailToNumber(x)], var)
-            P = rbeta(1, d[1], d[2])
-            aux = (utSpamSpam - utnoSpamSpam)*P + utnoSpamSpam
+            aux = rbeta(1, d[1], d[2])
             indexWinner = 1
             
             for(j in 1:length(x) ){
@@ -44,11 +42,9 @@ getAttackProbDistribution <- function(x,y,fit,var = 0.001, iter = 1000){
                     xtmp[j] = factor(1, levels = c(0,1))
                     d = deltas(fit$df$means[mailToNumber(xtmp)], var)
                     P = rbeta(1, d[1], d[2])
-                    aux2 = (utSpamSpam - utnoSpamSpam)*P + utnoSpamSpam
-                    
-                    if(aux2 > aux){
+                    if(P < aux){
                         indexWinner = j+1
-                        aux = aux2
+                        aux = P
                     }
                 }
                 
