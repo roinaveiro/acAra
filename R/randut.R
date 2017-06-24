@@ -12,11 +12,11 @@
 randut <- function(yc=1, y=1){
   # if y label is malicious and yc label is malicious
   if ((y == 1) & (yc == 1)){
-    Y = -rgamma(1,1,1)
+    Y = -rgamma(1, 1, 1) ## Mean value of -1.
   }
   # if y label is malicious and yc label innocent
   if ((y == 1) & (yc == 0)){
-    Y = rgamma(1,1,1)  
+    Y = rgamma(1, 20, 1)  ## Mean value of +20.
   }
   # if y label is innocent and yc label is malicious
   if ((y == 0) & (yc == 1)){
