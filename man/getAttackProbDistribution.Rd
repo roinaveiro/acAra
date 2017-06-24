@@ -4,7 +4,7 @@
 \alias{getAttackProbDistribution}
 \title{Attacks Probability Distribution}
 \usage{
-getAttackProbDistribution(x, y, fit, var = 0.001)
+getAttackProbDistribution(x, y, fit, var = 0.001, iter = 1000)
 }
 \arguments{
 \item{x}{the email.}

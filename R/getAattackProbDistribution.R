@@ -15,7 +15,7 @@
 #' @examples
 #' getAttackProbDsitribution(x,y)
 
-getAttackProbDistribution <- function(x,y,fit,var = 0.001){
+getAttackProbDistribution <- function(x,y,fit,var = 0.001, iter = 1000){
         n = length(x) + 1
         probDist = rep(0, n)
         
@@ -27,7 +27,7 @@ getAttackProbDistribution <- function(x,y,fit,var = 0.001){
         } 
         
         # If label is 1, then MC simulation.
-        for(k in 1:1000){
+        for(k in 1:iter){
             
             utSpamSpam = randut(1,1)
             utnoSpamSpam = randut(0,1)
@@ -56,6 +56,6 @@ getAttackProbDistribution <- function(x,y,fit,var = 0.001){
             
         }
         
-        return(probDist/1000)
+        return(probDist/iter)
         
 }
