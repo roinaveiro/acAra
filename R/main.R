@@ -17,7 +17,8 @@
 getACRAlabel <- function(x,fit,var = 0.000001){
     pSpam = getNBPriors(fit)["1"]
     print(paste("Studying possible original message x", "0"))
-    aux = getAttackProbDistribution(x, 1, fit, var)[1]
+    aux = getAttackProbDistribution(x, 1, fit, var)
+    aux = aux[1]
     aux = aux * getNBProbabilities(fit, x)[,"1"]
     for(i in 1:length(x)){
         xtmp = x
