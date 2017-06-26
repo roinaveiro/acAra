@@ -14,7 +14,7 @@
 #' @examples
 #' getACRAlabel(x,fit,var)
 
-getACRAlabel <- function(x,fit,var = 0.5){
+getACRAlabel <- function(x,fit,var = 0.5, ut=-10){
     pSpam = getNBPriors(fit)["1"]
     print(paste("Studying possible original message x", "0"))
     aux = getAttackProbDistribution(x, 1, fit, var)
@@ -32,13 +32,13 @@ getACRAlabel <- function(x,fit,var = 0.5){
     }
     
     ## Case yc == 1
-    utYcOne = pSpam * classifierUtilitiesGenerator(1,1) * aux + 
-        (1.0 - pSpam) * classifierUtilitiesGenerator(1,0) * 
+    utYcOne = pSpam * classifierUtilitiesGenerator(1,1,ut) * aux + 
+        (1.0 - pSpam) * classifierUtilitiesGenerator(1,0,ut) * 
         getNBProbabilities(fit, x)[,"0"]
     
     ## Case yc == 0
-    utYcZero = pSpam * classifierUtilitiesGenerator(0,1) * aux + 
-        (1.0 - pSpam) * classifierUtilitiesGenerator(0,0) * 
+    utYcZero = pSpam * classifierUtilitiesGenerator(0,1,ut) * aux + 
+        (1.0 - pSpam) * classifierUtilitiesGenerator(0,0,ut) * 
         getNBProbabilities(fit, x)[,"0"]
     
     if(utYcOne > utYcZero){

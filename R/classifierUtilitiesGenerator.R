@@ -8,7 +8,7 @@
 #' @examples
 #' classifierUtilitiesGenerator()
 
-classifierUtilitiesGenerator <- function(yc=1,y=1){
+classifierUtilitiesGenerator <- function(yc=1,y=1,ut = -10){
   # if y label is malicious and yc label is malicious
   if ((yc == 1) & (y == 1)){
     U = 1
@@ -19,7 +19,7 @@ classifierUtilitiesGenerator <- function(yc=1,y=1){
   }
   # if y label is innocent and yc label is malicious
   if ((yc == 0) & (y == 1)){
-    U = -10
+    U = ut
   }
   # if y label is innocent and yc label is innocent
   if ((yc == 0) & (y == 0)){
