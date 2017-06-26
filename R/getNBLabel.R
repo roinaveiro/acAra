@@ -13,19 +13,19 @@
 #' @examples
 #' getNBlabel(x,fit,var)
 
-getNBlabel <- function(x,fit){
+getNBlabel <- function(x,fit, ut=-10){
     pSpam = getNBPriors(fit)["1"]
     
     ## Case yc == 1
-    utYcOne = pSpam * classifierUtilitiesGenerator(1,1) *  
+    utYcOne = pSpam * classifierUtilitiesGenerator(1,1,ut) *  
         getNBProbabilities(fit, x)[,"1"] + 
-        (1.0 - pSpam) * classifierUtilitiesGenerator(1,0) * 
+        (1.0 - pSpam) * classifierUtilitiesGenerator(1,0,ut) * 
         getNBProbabilities(fit, x)[,"0"]
     
     ## Case yc == 0
-    utYcZero = pSpam * classifierUtilitiesGenerator(0,1) *  
+    utYcZero = pSpam * classifierUtilitiesGenerator(0,1,ut) *  
         getNBProbabilities(fit, x)[,"1"] + 
-        (1.0 - pSpam) * classifierUtilitiesGenerator(0,0) * 
+        (1.0 - pSpam) * classifierUtilitiesGenerator(0,0,ut) * 
         getNBProbabilities(fit, x)[,"0"]
     
     if(utYcOne > utYcZero){
