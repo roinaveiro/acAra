@@ -4,7 +4,7 @@
 \alias{getACRAlabel}
 \title{ACRA classificator}
 \usage{
-getACRAlabel(x, fit, var = 0.001)
+getACRAlabel(x, fit, var = 1e-06)
 }
 \arguments{
 \item{x}{the email.}
