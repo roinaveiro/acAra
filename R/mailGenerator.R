@@ -46,6 +46,9 @@ mailGenerator <- function(k=5, spam = T,
         }
         else{
                 email = rbinom(k, 1, 0.5)
+                while(any( apply(subsetSpam,1, function(x) all(x == email)) )){
+                    email = rbinom(k, 1, 0.5)
+                }
         }
        
         return(email)

@@ -4,7 +4,7 @@
 \alias{classifierUtilitiesGenerator}
 \title{Classifier utilities generator}
 \usage{
-classifierUtilitiesGenerator(yc = 1, y = 1)
+classifierUtilitiesGenerator(yc = 1, y = 1, ut = -10)
 }
 \arguments{
 \item{yc}{defender's decision about email label, 1 spam 0 no spam.}

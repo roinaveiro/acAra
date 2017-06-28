@@ -4,7 +4,7 @@
 \alias{getNBlabel}
 \title{NB classificator with utilities}
 \usage{
-getNBlabel(x, fit)
+getNBlabel(x, fit, ut = -10)
 }
 \arguments{
 \item{x}{the email.}
