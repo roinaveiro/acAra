@@ -15,7 +15,7 @@
 #' @examples
 #' getAttackProbDsitribution(x,y)
 
-getAttackProbDistribution <- function(x,y,fit,var = 0.5, iter = 1000){
+getAttackProbDistribution <- function(x,y,fit,var = 0.99, iter = 1000){
         n = length(x) + 1
         probDist = rep(0, n)
         
@@ -32,7 +32,7 @@ getAttackProbDistribution <- function(x,y,fit,var = 0.5, iter = 1000){
             utSpamSpam = randut(1,1)
             utnoSpamSpam = randut(0,1)
             
-            d = deltas(fit$df$means[mailToNumber(x)], fit$df$means[mailToNumber(x)]*var)
+            d = deltas(fit$df$means[mailToNumber(x)], (fit$df$means[mailToNumber(x)] - fit$df$means[mailToNumber(x)]^2)*var)
             P = rbeta(1, d[1], d[2])
             aux = (utSpamSpam - utnoSpamSpam)*P + utnoSpamSpam
             indexWinner = 1
@@ -42,7 +42,7 @@ getAttackProbDistribution <- function(x,y,fit,var = 0.5, iter = 1000){
                 xtmp = x
                 if(xtmp[j] == 0){
                     xtmp[j] = factor(1, levels = c(0,1))
-                    d = deltas(fit$df$means[mailToNumber(xtmp)], fit$df$means[mailToNumber(xtmp)]*var)
+                    d = deltas(fit$df$means[mailToNumber(xtmp)], (fit$df$means[mailToNumber(xtmp)] - fit$df$means[mailToNumber(xtmp)]^2)*var)
                     P = rbeta(1, d[1], d[2])
                     aux2 = (utSpamSpam - utnoSpamSpam)*P + utnoSpamSpam
                     
