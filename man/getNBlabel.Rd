@@ -4,7 +4,8 @@
 \alias{getNBlabel}
 \title{NB classificator with utilities}
 \usage{
-getNBlabel(x, fit, ut = -10)
+getNBlabel(x, fit, ut = matrix(c(1, -10, -1, 1), nrow = 2, byrow = T, dimnames
+  = list(c("0", "1"), c("0", "1"))))
 }
 \arguments{
 \item{x}{the email.}
