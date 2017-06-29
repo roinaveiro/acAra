@@ -12,7 +12,7 @@
 #' @examples
 #' getACRAprobabilities(x,fit,var)
 
-getACRAlabel <- function(x,fit,var = 0.99){
+getACRAprobabilities <- function(x,fit,var = 0.99){
     
     print(paste("Studying possible original message x", "0"))
     aux = getAttackProbDistribution(x, 1, fit, var)
