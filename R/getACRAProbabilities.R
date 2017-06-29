@@ -28,7 +28,7 @@ getACRAprobabilities <- function(x,fit,var = 0.99){
             aux = aux + tmp
         }
     }
-    return(getNBProbabilities(fit, x)[,"0"], aux)
+    return(c( getNBProbabilities(fit, x)[,"0"], aux) ) 
 
     
     
