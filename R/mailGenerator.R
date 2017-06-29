@@ -45,13 +45,13 @@ mailGenerator <- function(k=5, spam = T,
                email = t(aux) %*% subsetSpam
         }
         else{
-                ##email = rbinom(k, 1, 0.5) ### Put just this to random emails 
+                email = rbinom(k, 1, 0.5) ### Put just this to random emails 
                                             # from the all possible emails.
-                # while(any( apply(subsetSpam,1, function(x) all(x == email)) )){
-                #     email = rbinom(k, 1, 0.5)
-                # } ### Add this to avoid taking a spam email as legitimate.
+                 while(any( apply(subsetSpam,1, function(x) all(x == email)) )){
+                     email = rbinom(k, 1, 0.5)
+                 } ### Add this to avoid taking a spam email as legitimate.
                 
-                email = c(0,0, rbinom(k-2, 1, 0.5)) ## This is just to have legit 
+                #email = c(0,0, rbinom(k-2, 1, 0.5)) ## This is just to have legit 
                                                     ## mails with just good words.
         }
        
