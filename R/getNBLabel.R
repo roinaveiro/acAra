@@ -13,19 +13,19 @@
 #' @examples
 #' getNBlabel(x,fit,var)
 
-getNBlabel <- function(x,fit, ut=c(1,-10,-1,1)){
+getNBlabel <- function(x,fit, ut = matrix(c(1,-10,-1,1), nrow = 2, byrow = T, dimnames = list(c("0", "1"), c("0", "1")))){
     pSpam = getNBPriors(fit)["1"]
     
     ## Case yc == 1
-    utYcOne = pSpam * ut[4] *  
+    utYcOne = pSpam * ut["1","1"] *  
         getNBProbabilities(fit, x)[,"1"] + 
-        (1.0 - pSpam) * ut[3] * 
+        (1.0 - pSpam) * ut["1","0"] * 
         getNBProbabilities(fit, x)[,"0"]
     
     ## Case yc == 0
-    utYcZero = pSpam * ut[2] *  
+    utYcZero = pSpam * ut["0","1"]*  
         getNBProbabilities(fit, x)[,"1"] + 
-        (1.0 - pSpam) * ut[1] * 
+        (1.0 - pSpam) * ut["0","0"] * 
         getNBProbabilities(fit, x)[,"0"]
     
     if(utYcOne > utYcZero){
